@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CustomGPT Tools Portal</title>
+  <meta name="description" content="Simple portal to explore CustomGPT demos and tools." />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="CustomGPT Tools Portal" />
+  <meta property="og:description" content="Explore live demos and tools built with and for CustomGPT." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./cgpt.png" />
+  <!-- Early theme set to avoid flash -->
+  <script>(function(){try{var t=localStorage.getItem('theme');var s=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';document.documentElement.setAttribute('data-theme', t || s);}catch(e){}})();</script>
+  <link rel="icon" href="./cgpt.png" type="image/png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="CustomGPT Home">
+        <span class="brand-mark"><img src="./cgpt.png" alt="CustomGPT" /></span>
+        <span class="brand-text">CustomGPT Portal</span>
+      </a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-title">Deployments and Tools</h1>
+        <p class="hero-subtitle">Explore live demos and calculators built with CustomGPT.</p>
+        <div class="hero-actions">
+          <input id="searchInput" type="search" class="search" placeholder="Search tools…" aria-label="Search tools" />
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="tools">
+      <div class="container">
+        <div id="toolsGrid" class="grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> CustomGPT. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#" aria-label="Contact">Contact</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" aria-label="Privacy">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html> 
