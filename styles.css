@@ -1,6 +1,6 @@
 .brand-mark img {
-  width: 22px;
-  height: 22px;
+  height: 24px;
+  width: auto;
   display: block;
 }
 
@@ -97,13 +97,15 @@ body {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: radial-gradient(120% 120% at 0% 0%, var(--brand) 0%, var(--brand-2) 50%, #4c1d95 100%);
-  box-shadow: 0 8px 30px color-mix(in oklab, var(--brand) 30%, black 70%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 8px 12px;
+  width: auto;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
 }
 
 .brand-text {
@@ -156,6 +158,33 @@ body {
 .hero-actions {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  color: #1a102b;
+  background: linear-gradient(180deg, #ede9fe 0%, #e9d5ff 100%);
+  border-color: #e9d5ff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 24px rgba(124, 58, 237, 0.25);
 }
 
 .search {
@@ -269,4 +298,6 @@ body {
   .credit { display: block; margin-left: 0; margin-top: 4px; }
   .card { grid-template-columns: 48px 1fr; }
   .card-cta { display: none; }
+  .brand-mark { height: 36px; padding: 6px 10px; }
+  .brand-mark img { height: 22px; }
 } 
