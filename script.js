@@ -25,6 +25,15 @@ const tools = [
     emoji: "💬",
     logo: "./cgpt.png",
     tags: ["intercom", "chat", "customgpt"]
+  },
+  {
+    id: "multi-agent-dropdown",
+    name: "Multi-Agent Live Chat",
+    description: "Test a multi-agent chat and switch agents via a dropdown.",
+    url: "https://dropdown-test.replit.app",
+    emoji: "🔀",
+    logo: "./cgpt.png",
+    tags: ["chatbot", "agents", "demo", "dropdown"]
   }
 ];
 

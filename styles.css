@@ -70,9 +70,15 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in oklab, var(--bg) 80%, #000 20%);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  /* Header background fallback */
+  background: rgba(20, 19, 41, 0.85);
+}
+
+/* Overwrite with advanced gradient when supported */
+@supports (background: color-mix(in oklab, white 10%, black 90%)) {
+  .site-header {
+    background: color-mix(in oklab, var(--bg) 80%, #000 20%);
+  }
 }
 
 [data-theme="light"] .site-header {
@@ -218,16 +224,20 @@ body {
   align-items: center;
   padding: 16px;
   border-radius: 14px;
-  background: linear-gradient(180deg, var(--card) 0%, color-mix(in oklab, var(--card) 70%, #1a103d 30%) 100%);
-  border: 1px solid var(--card-border);
+  /* Card gradient fallback */
+  background: linear-gradient(180deg, var(--card), #1a103d);
   text-decoration: none;
-  color: var(--text);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  color: inherit;
+}
+
+@supports (background: color-mix(in oklab, white 10%, black 90%)) {
+  .card {
+    background: linear-gradient(180deg, var(--card) 0%, color-mix(in oklab, var(--card) 70%, #1a103d 30%) 100%);
+  }
 }
 
 [data-theme="light"] .card {
   background: linear-gradient(180deg, #ffffff 0%, #f7f2ff 100%);
-  border: 1px solid #eadcff;
 }
 
 .card:hover {
