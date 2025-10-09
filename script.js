@@ -18,13 +18,13 @@ const tools = [
     tags: ["roi", "calculator", "customgpt"]
   },
   {
-    id: "intercom-chat",
-    name: "CustomGPT via Intercom",
-    description: "Experience CustomGPT in an Intercom Messenger.",
-    url: "https://intercom-customgpt-deployment.replit.app/",
-    emoji: "💬",
+    id: "instant-viewer-demo",
+    name: "CustomGPT Instant Viewer",
+    description: "Test CustomGPT's Instant Viewer deployment method.",
+    url: "https://instant-viewer-demo.replit.app",
+    emoji: "⚡",
     logo: "./cgpt.png",
-    tags: ["intercom", "chat", "customgpt"]
+    tags: ["instant", "viewer", "demo", "customgpt"]
   },
   {
     id: "multi-agent-dropdown",
