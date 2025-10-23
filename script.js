@@ -34,6 +34,15 @@ const tools = [
     emoji: "🔀",
     logo: "./cgpt.png",
     tags: ["chatbot", "agents", "demo", "dropdown"]
+  },
+  {
+    id: "web-search-mcp",
+    name: "CustomGPT + Web Search MCP",
+    description: "Demo of CustomGPT's MCP connection enabling web search.",
+    url: "https://customgpt-web-search.replit.app",
+    emoji: "🌐",
+    logo: "./cgpt.png",
+    tags: ["mcp", "web", "search", "demo", "customgpt"]
   }
 ];
 
