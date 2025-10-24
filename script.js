@@ -43,6 +43,15 @@ const tools = [
     emoji: "🌐",
     logo: "./cgpt.png",
     tags: ["mcp", "web", "search", "demo", "customgpt"]
+  },
+  {
+    id: "ai-vision-mazda-hub",
+    name: "CustomGPT AI Vision Capability Demo",
+    description: "AI Vision demo based on a Mazda hatchback hub.",
+    url: "https://mazda-hatchback-hub.replit.app",
+    emoji: "🚗",
+    logo: "./cgpt.png",
+    tags: ["vision", "ai", "demo", "customgpt", "mazda", "hatchback"]
   }
 ];
 
