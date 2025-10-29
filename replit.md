@@ -5,7 +5,7 @@ A simple, elegant landing page that serves as a portal to key CustomGPT demos an
 
 **Purpose:** Central hub for accessing various CustomGPT demonstrations and calculators  
 **Current State:** Fully functional static site running on Replit  
-**Deployment:** Ready to publish via Replit Deployments
+**Deployment:** Managed via GitHub Pages with automated GitHub Actions pipeline
 
 ## Project Architecture
 
@@ -63,7 +63,19 @@ Edit `script.js` and add a new entry to the `tools` array:
 Cards render automatically - no HTML changes needed.
 
 ## Deployment
-This project is configured for Replit's Autoscale deployment (suitable for static sites). No build step required - the same Python HTTP server serves the production site.
+
+### GitHub Pages Workflow
+This project is deployed via GitHub Pages with an automated GitHub Actions pipeline:
+
+1. **Development:** Make changes in Replit using the built-in editor
+2. **Commit & Push:** Use Replit's Git panel (left sidebar) to commit and push changes to GitHub
+3. **Automated Deployment:** GitHub Actions automatically triggers and deploys to GitHub Pages
+4. **Live Site:** Changes appear on the production site once the pipeline completes
+
+### Deployment Notes
+- No build step required - this is a static site with vanilla HTML/CSS/JS
+- The Python HTTP server is only used for local development in Replit
+- All deployment infrastructure and configuration is managed through GitHub Actions
 
 ## User Preferences
 None specified yet.
