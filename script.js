@@ -52,6 +52,15 @@ const tools = [
     emoji: "🚗",
     logo: "./cgpt.png",
     tags: ["vision", "ai", "demo", "customgpt", "mazda", "hatchback"]
+  },
+  {
+    id: "ai-search-functionality",
+    name: "CustomGPT.ai Search Functionality",
+    description: "Demo showcasing CustomGPT.ai's AI search deployment.",
+    url: "https://customgpt.replit.app",
+    emoji: "🔍",
+    logo: "./cgpt.png",
+    tags: ["search", "ai", "demo", "customgpt"]
   }
 ];
 
