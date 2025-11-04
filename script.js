@@ -61,6 +61,15 @@ const tools = [
     emoji: "🔍",
     logo: "./cgpt.png",
     tags: ["search", "ai", "demo", "customgpt"]
+  },
+  {
+    id: "solostove-ecommerce",
+    name: "Solo Stove E-commerce Demo",
+    description: "CustomGPT e-commerce demo.",
+    url: "https://solostove-demo.replit.app",
+    emoji: "🛒",
+    logo: "./cgpt.png",
+    tags: ["ecommerce", "demo", "customgpt", "shopping"]
   }
 ];
 
