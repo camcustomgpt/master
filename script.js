@@ -73,6 +73,80 @@ const tools = [
   }
 ];
 
+function createSkeletonCard() {
+  const div = document.createElement("div");
+  div.className = "skeleton-card";
+
+  const icon = document.createElement("div");
+  icon.className = "skeleton-icon";
+
+  const content = document.createElement("div");
+  content.className = "skeleton-content";
+
+  const title = document.createElement("div");
+  title.className = "skeleton-title";
+
+  const desc = document.createElement("div");
+  desc.className = "skeleton-desc";
+
+  content.appendChild(title);
+  content.appendChild(desc);
+
+  const cta = document.createElement("div");
+  cta.className = "skeleton-cta";
+
+  div.appendChild(icon);
+  div.appendChild(content);
+  div.appendChild(cta);
+
+  return div;
+}
+
+function createEmptyState() {
+  const div = document.createElement("div");
+  div.className = "empty-state";
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("class", "empty-state-icon");
+  svg.setAttribute("viewBox", "0 0 120 120");
+  svg.setAttribute("fill", "none");
+
+  const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  circle.setAttribute("cx", "50");
+  circle.setAttribute("cy", "50");
+  circle.setAttribute("r", "30");
+  circle.setAttribute("stroke", "currentColor");
+  circle.setAttribute("stroke-width", "4");
+  circle.setAttribute("opacity", "0.3");
+
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line.setAttribute("x1", "72");
+  line.setAttribute("y1", "72");
+  line.setAttribute("x2", "95");
+  line.setAttribute("y2", "95");
+  line.setAttribute("stroke", "currentColor");
+  line.setAttribute("stroke-width", "4");
+  line.setAttribute("stroke-linecap", "round");
+  line.setAttribute("opacity", "0.3");
+
+  svg.appendChild(circle);
+  svg.appendChild(line);
+
+  const text = document.createElement("p");
+  text.className = "empty-state-text";
+  text.textContent = "No tools match your search";
+
+  const subtext = document.createElement("p");
+  subtext.className = "empty-state-subtext";
+  subtext.textContent = "Try a different search term or clear the search";
+
+  div.appendChild(svg);
+  div.appendChild(text);
+  div.appendChild(subtext);
+
+  return div;
+}
+
 function createToolCard(tool) {
   const a = document.createElement("a");
   a.className = "card";
@@ -113,26 +187,41 @@ function createToolCard(tool) {
   return a;
 }
 
-function renderTools(query = "") {
+function renderTools(query = "", animate = true) {
   const grid = document.getElementById("toolsGrid");
-  grid.innerHTML = "";
   const q = query.trim().toLowerCase();
 
-  tools
-    .filter(tool => {
-      if (!q) return true;
-      const hay = [tool.name, tool.description, ...(tool.tags || [])]
-        .join(" ")
-        .toLowerCase();
-      return hay.includes(q);
-    })
-    .forEach(tool => grid.appendChild(createToolCard(tool)));
+  const filteredTools = tools.filter(tool => {
+    if (!q) return true;
+    const hay = [tool.name, tool.description, ...(tool.tags || [])]
+      .join(" ")
+      .toLowerCase();
+    return hay.includes(q);
+  });
 
-  if (!grid.children.length) {
-    const empty = document.createElement("p");
-    empty.style.color = "var(--muted)";
-    empty.textContent = "No tools match your search.";
-    grid.appendChild(empty);
+  if (animate) {
+    const existingCards = Array.from(grid.querySelectorAll(".card"));
+    existingCards.forEach(card => {
+      card.classList.add("card-hiding");
+    });
+
+    setTimeout(() => {
+      grid.innerHTML = "";
+      
+      if (filteredTools.length === 0) {
+        grid.appendChild(createEmptyState());
+      } else {
+        filteredTools.forEach(tool => grid.appendChild(createToolCard(tool)));
+      }
+    }, 300);
+  } else {
+    grid.innerHTML = "";
+    
+    if (filteredTools.length === 0) {
+      grid.appendChild(createEmptyState());
+    } else {
+      filteredTools.forEach(tool => grid.appendChild(createToolCard(tool)));
+    }
   }
 }
 
@@ -192,9 +281,23 @@ function initThemeToggle() {
   }
 }
 
+function showLoadingSkeleton() {
+  const grid = document.getElementById("toolsGrid");
+  grid.innerHTML = "";
+  for (let i = 0; i < 6; i++) {
+    grid.appendChild(createSkeletonCard());
+  }
+}
+
 (function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
-  renderTools("");
+  
+  showLoadingSkeleton();
+  
+  setTimeout(() => {
+    renderTools("", false);
+  }, 800);
+  
   initSearch();
   initThemeToggle();
 })(); 
