@@ -70,6 +70,15 @@ const tools = [
     emoji: "🛒",
     logo: "./cgpt.png",
     tags: ["ecommerce", "demo", "customgpt", "shopping"]
+  },
+  {
+    id: "needham-athletic-club",
+    name: "Needham Athletic Club",
+    description: "Needham Athletic Club website, showcasing lead capture, webpage awareness, and an internal admin dashboard agent.",
+    url: "https://needham-athletic-club.replit.app/",
+    emoji: "🏋️",
+    logo: "./cgpt.png",
+    tags: ["website", "lead capture", "admin", "dashboard", "demo"]
   }
 ];
 
